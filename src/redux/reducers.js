@@ -2,36 +2,9 @@ import types from './types';
 
 const INITIAL_STATE = {
     listName: 'budgetApp',
-    list:[
-        {
-            name: 'blee',
-            value: 12,
-            operation: 'ADD'
-          },
-          {
-            name: 'blee',
-            value: 12,
-            operation: 'ADD'
-          },
-          {
-            name: 'blee',
-            value: 12,
-            operation: 'ADD'
-          },
-          {
-            name: 'aa',
-            value: 4,
-            operation: 'SUBTRACT'
-          },
-          {
-            name: 'ww',
-            value: 4,
-            operation: 'SUBTRACT'
-          }
-    ],
-    result:0
+    list: [],
+    result: 0
 }
-
 
 const budgetReducers = (state = INITIAL_STATE, action) => {
     switch(action.type) {
@@ -48,4 +21,5 @@ const budgetReducers = (state = INITIAL_STATE, action) => {
         default :return state;
     }
 }
+
 export default budgetReducers;

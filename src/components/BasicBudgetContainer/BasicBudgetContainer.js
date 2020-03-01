@@ -1,4 +1,6 @@
+/* eslint-disable no-mixed-operators */
 import React from 'react';
+import types from '../../redux/types'
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
@@ -13,34 +15,70 @@ const Wrapper = styled.div`
 const Title = styled.h1`
     text-align: center;
     text-transform: uppercase;
-    font-size: 27px;
+    font-size:${({ sum })=> sum ? '30px' : '27px'};
     color: #fff;
     font-family: sans-serif;
-    font-weight: 300;
+    font-weight: ${({ sum })=> sum ? 'bold' : '300'};
+    margin: 10px
 `;
 
 
-// const BoxAmount = styled.div`
-//     background: ${({ type }) => type === 'income' && '#28b9b5' || type ==='expenses' && '#ff5049' || 'white'};
-//     font-size: 18px;
-//     color: #fff;
-//     border: 1px solid #fff;
-//     padding: 10px 20px;
-// `;
+const BoxAmount = styled.div`
+    background: ${({ type }) => type === 'income' && '#28b9b5' || type ==='expenses' && '#ff5049' || '#fff'};
+    font-size: 16px;
+    color: #fff;
+    padding: 10px;
+    border-radius: 3px;
+    margin: 10px;
+    min-width: 300px;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.75);
+
+    p { 
+        display: flex;
+    }
+
+    p:first-child {
+        color: #000;
+    }
+
+    span {
+        background: #ff736c;
+        padding: 3px;
+        font-size: 10px;
+        border-radius: 5px;
+        margin: 0 6px;
+    }
+`;
 
 const BasicBudgetContainer = ({ budget }) => {
-    const { listName: bankName, list, result: amount } = budget;
-    console.log(list)
+    const { listName: budgetName, list, result: amount } = budget;
+    const typeExpense = type => list.filter(({ operation }) => operation === type).reduce((acc, item) => acc + item.value, 0);
+    const formatExpense = type =>  type === 'ADD' ? `+ ${typeExpense(type)} zł` : `- ${typeExpense(type)} zł`;
+    const percentageOfExpenses = type => '%' + (typeExpense(type) * 100 / amount).toFixed(1);
 
-    const incomeList = list.filter(({ operation }) => operation === 'ADD');
-
-    console.log(incomeList)
-    const e = incomeList.reduce((a, b) => parseFloat(a.value) + parseFloat(b.value), 0);
-    console.log(e)
-        return (
+    /*@TODO
+     - fix percentageOfExpenses, because wrong count when +10/-10 and other cases
+    */ 
+   
+    return (
         <Wrapper>
-            <Title>{bankName}</Title>
-            <Title>{amount}</Title>
+            <Title>{budgetName}</Title>
+            <Title sum>{amount}</Title>
+            { list.length ? (
+                <>
+                <BoxAmount type='income'>
+                    <p>income</p>
+                    <p>{formatExpense(types.ADD)}<span>{percentageOfExpenses(types.ADD)}</span></p>
+                </BoxAmount>
+                <BoxAmount type='expenses'>
+                    <p>expenses</p>
+                    <p>{formatExpense(types.SUBTRACT)}<span>{percentageOfExpenses(types.SUBTRACT)}</span></p>
+                </BoxAmount>
+                </>
+            ) : null}
         </Wrapper>
     )
 }
