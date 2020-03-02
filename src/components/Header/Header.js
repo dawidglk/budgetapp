@@ -17,33 +17,32 @@ const HeaderWrapper = styled.header`
 
 const Header = ({ add, subtract, budget }) => {
 
-        const [budgetInput, setBudgetInput] = useReducer(
-            (state, newState) => ({...state, ...newState}),
-            {
-                name: '',
-                value: '',
-                operation: 'add',
-            }
-        );
+    const initalState = {
+        name: '',
+        value: '',
+        operation: 'add',
+    }
 
-      const handleChange = e => {
+    const [budgetInput, setBudgetInput] = useReducer((state, newState) => ({...state, ...newState}),initalState);
+
+    const handleChange = e => {
         const name = e.target.name;
         const newValue = e.target.value;
 
         setBudgetInput({[name]: newValue});
-      }
+    }
 
-      const handleSubmit = e => {
-          e.preventDefault();
-          const { name, value, operation } = budgetInput;
-          const parseValue = parseFloat(value);
+    const handleSubmit = e => {
+        e.preventDefault();
+        const { name, value, operation } = budgetInput;
+        const parseValue = parseFloat(value);
 
-          if(budgetInput.name && budgetInput.value) {
-              operation === 'add' ? add(name, parseValue) : subtract(name, parseValue)
-          } else {
-              console.log('nie wysylamy')
-          }
-          Object.values(budgetInput)
+        if(budgetInput.name && budgetInput.value) {
+            operation === 'add' ? add(name, parseValue) : subtract(name, parseValue)
+        } else {
+            console.log('nie wysylamy')
+        }
+          setBudgetInput(initalState)
       }
 
     return (

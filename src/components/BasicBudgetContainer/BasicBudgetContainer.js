@@ -35,6 +35,7 @@ const BoxAmount = styled.div`
     display: flex;
     justify-content: space-between;
     box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.75);
+    transition: all .1s ease-in-out;
 
     p { 
         display: flex;
@@ -58,25 +59,21 @@ const BasicBudgetContainer = ({ budget }) => {
     const typeExpense = type => list.filter(({ operation }) => operation === type).reduce((acc, item) => acc + item.value, 0);
     const formatExpense = type =>  type === 'ADD' ? `+ ${typeExpense(type)} zł` : `- ${typeExpense(type)} zł`;
     const percentageOfExpenses = type => '%' + (typeExpense(type) * 100 / amount).toFixed(1);
-
-    /*@TODO
-     - fix percentageOfExpenses, because wrong count when +10/-10 and other cases
-    */ 
    
     return (
         <Wrapper>
             <Title>{budgetName}</Title>
-            <Title sum>{amount}</Title>
-            { list.length ? (
+            <Title sum>{amount} zł</Title>
+            {list.length ? (
                 <>
-                <BoxAmount type='income'>
-                    <p>income</p>
-                    <p>{formatExpense(types.ADD)}<span>{percentageOfExpenses(types.ADD)}</span></p>
-                </BoxAmount>
-                <BoxAmount type='expenses'>
-                    <p>expenses</p>
-                    <p>{formatExpense(types.SUBTRACT)}<span>{percentageOfExpenses(types.SUBTRACT)}</span></p>
-                </BoxAmount>
+                    <BoxAmount type='income'>
+                        <p>income</p>
+                        <p>{formatExpense(types.ADD)}</p>
+                    </BoxAmount>
+                    <BoxAmount type='expenses'>
+                        <p>expenses</p>
+                        <p>{formatExpense(types.SUBTRACT)}<span>{percentageOfExpenses(types.SUBTRACT)}</span></p>
+                    </BoxAmount>
                 </>
             ) : null}
         </Wrapper>

@@ -22,7 +22,7 @@ const Select = styled.select`
 
 const Input = styled.input`
     padding: 5px;
-    margin: 0 8px;
+    margin: 4px 8px;
     border-radius: 4px;
     background: #fff;
     outline: none;
@@ -34,6 +34,11 @@ const Input = styled.input`
 const FormContainer = styled.form`
     display: flex;
     align-items: center;
+    flex-direction: column;
+
+    @media (min-width: 768px) {
+        flex-direction: row;
+    }
 `;
 
 const Button = styled.button`
@@ -41,6 +46,17 @@ const Button = styled.button`
     outline: none;
     border: 0;
     cursor: pointer;
+    margin: 12px;
+
+    @media (min-width: 768px) {
+        margin: 0;
+    }
+    img {
+        transition: all .2s ease-in-out;
+        &:hover {
+            transform: scale(1.1); 
+        }
+    }
 `;
 
 const Form = ({ handleSubmit, handleChange, name, value, operation }) => {
