@@ -1,6 +1,8 @@
 import React from 'react';
-import Main from '../Main/Main';
-import Header from '../Header/Header';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import BudgetPage from '../../views/BudgetPage';
+import SettingsPage from '../../views/SettingsPage';
+import Navigation from '../Navigation/Navigation';
 import styled, { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
@@ -32,10 +34,17 @@ const Wrapper = styled.div`
 const App = () => (
   <>
     <GlobalStyle/>
-    <Wrapper>
-      <Header/>
-      <Main/>
-    </Wrapper>
+    <BrowserRouter>
+      <>
+        <Navigation/>
+        <Wrapper>
+          <Switch>
+            <Route exact path='/' component={BudgetPage}/>
+            <Route path='/settings' component={SettingsPage}/>
+          </Switch>
+        </Wrapper>
+      </>
+    </BrowserRouter>
   </>
 )
 
