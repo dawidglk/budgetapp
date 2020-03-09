@@ -1,12 +1,12 @@
 import React, { useReducer } from 'react';
-import Form from '../Form/Form';
-import  BasicBudgetContainer from '../BasicBudgetContainer/BasicBudgetContainer';
 import { connect } from 'react-redux';
-import actions from '../../redux/actions'
+import actions from '../../redux/actions';
 import styled from 'styled-components';
+import FormBudget from '../FormBudget/FormBudget';
+import  DisplayMainBudget from '../DisplayMainBudget/DisplayMainBudget';
 import img from '../../assets/img/background.jpg';
 
-const HeaderWrapper = styled.header`
+const Wrapper = styled.header`
     flex-grow: 1;
     display: flex;
     flex-direction: column;
@@ -15,7 +15,7 @@ const HeaderWrapper = styled.header`
     background: url(${img});
 `;
 
-const Header = ({ add, subtract, budget }) => {
+const AddBudget = ({ add, subtract, budget }) => {
 
     const initalState = {
         name: '',
@@ -46,16 +46,16 @@ const Header = ({ add, subtract, budget }) => {
       }
 
     return (
-        <HeaderWrapper>
-            <BasicBudgetContainer budget={budget}/>
-            <Form 
+        <Wrapper>
+            <DisplayMainBudget budget={budget}/>
+            <FormBudget 
                 handleSubmit={handleSubmit}
                 handleChange={handleChange} 
                 name={budgetInput.name} 
                 value={budgetInput.value} 
                 operation={budgetInput.operation}
             />
-        </HeaderWrapper>
+        </Wrapper>
     )
 }
 
@@ -68,4 +68,4 @@ const mapStateToProps = state => ({
     budget:state.budget
 });
 
-export default connect(mapStateToProps ,mapDispatchToProps)(Header);
+export default connect(mapStateToProps ,mapDispatchToProps)(AddBudget);

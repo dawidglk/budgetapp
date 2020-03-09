@@ -1,11 +1,11 @@
 import React from 'react';
-import ListExpensesRevenues from './ListExpensesRevenues';
 import { connect } from 'react-redux';
 import actions from '../../redux/actions'
 import types from '../../redux/types';
 import styled from 'styled-components';
+import ItemExpensesRevenues from '../ItemExpensesRevenues/ItemExpensesRevenues';
 
-const MainWrapper = styled.main`
+const Wrapper = styled.main`
     background: #fff;
     flex-grow: 2;
     display: flex;
@@ -26,10 +26,10 @@ const Main = ({ budget, removeItem }) => {
     const income = list.filter(({ operation }) => operation === types.ADD) || null;
     const expenses = list.filter(({ operation }) => operation === types.SUBTRACT) || null;
     return (
-        <MainWrapper>
-            <ListExpensesRevenues data={income} remove={removeItem} name="income"/>
-            <ListExpensesRevenues data={expenses}  remove={removeItem} name="expenses"/>
-        </MainWrapper>
+        <Wrapper>
+            <ItemExpensesRevenues data={income} remove={removeItem} name="income"/>
+            <ItemExpensesRevenues data={expenses}  remove={removeItem} name="expenses"/>
+        </Wrapper>
     )
 };
 

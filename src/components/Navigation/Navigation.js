@@ -1,9 +1,9 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import styled from 'styled-components';
 import { connect } from 'react-redux';
+import styled from 'styled-components';
 
-const pageData = [{ path:'/', page: 'budget', exact:true}, { path:'/task', page: 'task'}, { path:'/settings', page: 'settings'}];
+const pageData = [{ path:'/', page: 'budget', exact: true}, { path:'/task', page: 'task'}, { path:'/settings', page: 'settings'}];
 
 const Wrapper = styled.div`
     border-top: 1px solid #000;
@@ -17,7 +17,11 @@ const List = styled.ul`
 
     li {
         list-style: none;
-        margin:10px 20px;
+        margin:10px;
+
+        @media (min-width: 768px) {
+            margin:10px 20px;
+        }
 
         span {
             text-transform: uppercase;
@@ -46,7 +50,7 @@ const StyledLink = styled(NavLink)`
 const Navigation = ({ amount }) => (
         <Wrapper>
             <List>
-                {pageData.map(({ path, page:name, exact }) => <li><StyledLink exact={exact} activeClassName='active' to={path}>{name}</StyledLink></li>)}
+                {pageData.map(({ path, page:name, exact }) => <li key={name}><StyledLink exact={exact} activeClassName='active' to={path}>{name}</StyledLink></li>)}
                 <li><span>My amount: {amount ? `${amount} zł` : 'empty'}</span></li>
             </List>
         </Wrapper>

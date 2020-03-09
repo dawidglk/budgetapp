@@ -54,7 +54,7 @@ const BoxAmount = styled.div`
     }
 `;
 
-const BasicBudgetContainer = ({ budget }) => {
+const DisplayMainBudget = ({ budget }) => {
     const { listName: budgetName, list, result: amount } = budget;
     const typeExpense = type => list.filter(({ operation }) => operation === type).reduce((acc, item) => acc + item.value, 0);
     const formatExpense = type =>  type === 'ADD' ? `+ ${typeExpense(type)} zł` : `- ${typeExpense(type)} zł`;
@@ -80,4 +80,4 @@ const BasicBudgetContainer = ({ budget }) => {
     )
 }
 
-export default BasicBudgetContainer;
+export default DisplayMainBudget;

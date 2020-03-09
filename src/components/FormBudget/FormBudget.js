@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import completedIcon from '../../assets/img/completed.svg'
 
-const WrapperForm = styled.div`
+const Wrapper = styled.div`
     background:#f7f7f7;
     width: 100%;
     padding: 10px;
@@ -59,9 +59,9 @@ const Button = styled.button`
     }
 `;
 
-const Form = ({ handleSubmit, handleChange, name, value, operation }) => {
+const FormBudget = ({ handleSubmit, handleChange, name, value, operation }) => {
     return (
-        <WrapperForm>
+        <Wrapper>
             <FormContainer onSubmit={handleSubmit}>
                 <Select name="operation" value={operation} onChange={handleChange}>
                     <option value="add">+</option>
@@ -71,8 +71,8 @@ const Form = ({ handleSubmit, handleChange, name, value, operation }) => {
                 <Input placeholder='Value' name="value" type="number" value={value} onChange={handleChange}/>
                 <Button type="submit"><img src={completedIcon} alt='completedIcon'/></Button>
             </FormContainer>
-        </WrapperForm>
+        </Wrapper>
     )
 }
 
-export default Form;
+export default FormBudget;

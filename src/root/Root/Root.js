@@ -1,9 +1,10 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import BudgetPage from '../../views/BudgetPage';
-import SettingsPage from '../../views/SettingsPage';
-import Navigation from '../Navigation/Navigation';
 import styled, { createGlobalStyle } from 'styled-components';
+import BudgetContainers from '../../containers/BudgetContainers/BudgetContainers';
+import SettingsContainers from '../../containers/SettingsContainers/SettingsContainers';
+import Navigation from '../../components/Navigation/Navigation';
+
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -31,7 +32,7 @@ const Wrapper = styled.div`
 `;
 
 
-const App = () => (
+const Root = () => (
   <>
     <GlobalStyle/>
     <BrowserRouter>
@@ -39,8 +40,8 @@ const App = () => (
         <Navigation/>
         <Wrapper>
           <Switch>
-            <Route exact path='/' component={BudgetPage}/>
-            <Route path='/settings' component={SettingsPage}/>
+            <Route exact path='/' component={BudgetContainers}/>
+            <Route path='/settings' component={SettingsContainers}/>
           </Switch>
         </Wrapper>
       </>
@@ -49,4 +50,4 @@ const App = () => (
 )
 
 
-export default App;
+export default Root;

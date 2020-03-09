@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import removeIcon from '../../assets/img/remove.svg';
 
-const ExpensesRevenuesBox = styled.div`
+const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
     margin: 10px;
@@ -58,7 +58,7 @@ const ExpensesRevenuesBox = styled.div`
 
 const ListExpensesRevenues = ({ data, name, remove }) => {  
     return (
-        <ExpensesRevenuesBox type={name}>
+        <Wrapper type={name}>
             <h1>{name}</h1>
             <ul>
                 {data.map((item,i) => 
@@ -73,7 +73,7 @@ const ListExpensesRevenues = ({ data, name, remove }) => {
                     </li>
                 )}
             </ul>
-        </ExpensesRevenuesBox>
+        </Wrapper>
     )
 };
 
