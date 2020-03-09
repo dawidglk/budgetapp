@@ -10,6 +10,8 @@ const Wrapper = styled.div`
     flex-direction: column;
     justify-content: center;
     height: 100%;
+    min-height: 200px;
+    transition: height 0.66s ease-out;
 `;
 
 const Title = styled.h1`
