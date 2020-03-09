@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import styled, { createGlobalStyle } from 'styled-components';
-import BudgetContainers from '../../containers/BudgetContainers/BudgetContainers';
-import SettingsContainers from '../../containers/SettingsContainers/SettingsContainers';
-import Navigation from '../../components/Navigation/Navigation';
+import BudgetContainers from '../containers/BudgetContainers/BudgetContainers';
+import SettingsContainers from '../containers/SettingsContainers/SettingsContainers';
+import Navigation from '../components/Navigation/Navigation';
 
 
 const GlobalStyle = createGlobalStyle`
