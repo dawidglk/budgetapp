@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux'
+import budgetReducers from '../redux/budget';
+import trelloReducers from '../redux/trello';
 
-import budgetReducers from '../redux/budget/reducers';
-
-const rootReducers = combineReducers({ budget: budgetReducers });
+const rootReducers = combineReducers({ budget: budgetReducers, tasks: trelloReducers });
 
 export default rootReducers;

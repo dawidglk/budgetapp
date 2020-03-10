@@ -1,6 +1,6 @@
 import React, { useReducer } from 'react';
 import { connect } from 'react-redux';
-import actions from '../../redux/actions';
+import actions from '../../redux/budget/actions';
 import styled from 'styled-components';
 import FormBudget from '../FormBudget';
 import DisplayMainBudget from '../DisplayMainBudget';
@@ -23,7 +23,7 @@ const AddBudget = ({ add, subtract, budget }) => {
         operation: 'add',
     }
 
-    const [budgetInput, setBudgetInput] = useReducer((state, newState) => ({...state, ...newState}),initalState);
+    const [budgetInput, setBudgetInput] = useReducer((state, newState) => ({...state, ...newState}), initalState);
 
     const handleChange = e => {
         const name = e.target.name;
