@@ -13,6 +13,7 @@ This project for management your budget, actually the project includes initial i
 
 # Tasks View
 Tasks implementation in progress...
+
 TODO:
 - drag & drop
 - adding and remove tasks
