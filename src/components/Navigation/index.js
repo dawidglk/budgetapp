@@ -1,10 +1,11 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { pageData as navigationItem } from '../../helpers/pageData';
 import styled from 'styled-components';
 import logo from '../../assets/img/logo.svg';
 import { Link } from 'react-router-dom';
-const pageData = [{ path:'/', page: 'budget', exact: true}, { path:'/tasks', page: 'tasks'}, { path:'/settings', page: 'settings'}];
+
 
 const Wrapper = styled.div`
     border-top: 1px solid #000;
@@ -86,7 +87,7 @@ const Navigation = ({ amount }) => (
         <Wrapper>
             <Link to='/'><img src={logo} alt='logo'/></Link>
             <List>
-                {pageData.map(({ path, page:name, exact }) => <li key={name}><StyledLink exact={exact} activeClassName='active' to={path}>{name}</StyledLink></li>)}
+                {navigationItem.map(({ path, page:name, exact }) => <li key={name}><StyledLink exact={exact} activeClassName='active' to={path}>{name}</StyledLink></li>)}
                 <li><div><span>My budget: </span>{amount ? `${amount} zł` : '0'}</div></li>
             </List>
         </Wrapper>

@@ -1,0 +1,1 @@
+export const pageData = [{ path:'/', page: 'budget', exact: true}, { path:'/tasks', page: 'tasks'}, { path:'/settings', page: 'settings'}];
