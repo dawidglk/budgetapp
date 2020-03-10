@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux'
 
-import budgetReducers from '../redux/reducers';
+import budgetReducers from '../redux/budget/reducers';
 
 const rootReducers = combineReducers({ budget: budgetReducers });
 

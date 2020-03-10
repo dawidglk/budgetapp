@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import actions from '../../redux/actions'
-import types from '../../redux/types';
+import actions from '../../redux/budget/actions'
+import types from '../../redux/budget/types';
 import styled from 'styled-components';
 import ItemExpensesRevenues from '../ItemExpensesRevenues';
 

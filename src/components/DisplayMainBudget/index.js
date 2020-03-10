@@ -1,6 +1,6 @@
 /* eslint-disable no-mixed-operators */
 import React from 'react';
-import types from '../../redux/types'
+import types from '../../redux/budget/types';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`

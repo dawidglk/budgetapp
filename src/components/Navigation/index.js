@@ -87,7 +87,7 @@ const Navigation = ({ amount }) => (
         <Wrapper>
             <Link to='/'><img src={logo} alt='logo'/></Link>
             <List>
-                {navigationItem.map(({ path, page:name, exact }) => <li key={name}><StyledLink exact={exact} activeClassName='active' to={path}>{name}</StyledLink></li>)}
+                {navigationItem.map(({ path, page: name, exact }) => <li key={name}><StyledLink exact={exact} activeClassName='active' to={path}>{name}</StyledLink></li>)}
                 <li><div><span>My budget: </span>{amount ? `${amount} zł` : '0'}</div></li>
             </List>
         </Wrapper>
