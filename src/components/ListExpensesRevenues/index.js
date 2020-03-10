@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import actions from '../../redux/actions'
 import types from '../../redux/types';
 import styled from 'styled-components';
-import ItemExpensesRevenues from '../ItemExpensesRevenues/ItemExpensesRevenues';
+import ItemExpensesRevenues from '../ItemExpensesRevenues';
 
 const Wrapper = styled.main`
     background: #fff;

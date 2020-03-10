@@ -1,6 +1,6 @@
 import React from 'react';
-import AddBudget from '../../components/AddBudget/AddBudget';
-import ListExpensesRevenues from '../../components/ListExpensesRevenues/ListExpensesRevenues';
+import AddBudget from '../../components/AddBudget';
+import ListExpensesRevenues from '../../components/ListExpensesRevenues';
 
 const BudgetContainers = () => (
     <>

@@ -2,8 +2,8 @@ import React, { useReducer } from 'react';
 import { connect } from 'react-redux';
 import actions from '../../redux/actions';
 import styled from 'styled-components';
-import FormBudget from '../FormBudget/FormBudget';
-import  DisplayMainBudget from '../DisplayMainBudget/DisplayMainBudget';
+import FormBudget from '../FormBudget';
+import DisplayMainBudget from '../DisplayMainBudget';
 import img from '../../assets/img/background.jpg';
 
 const Wrapper = styled.header`

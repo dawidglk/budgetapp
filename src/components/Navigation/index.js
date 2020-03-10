@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import styled from 'styled-components';
 import logo from '../../assets/img/logo.svg';
 import { Link } from 'react-router-dom';
-const pageData = [{ path:'/', page: 'budget', exact: true}, { path:'/task', page: 'task'}, { path:'/settings', page: 'settings'}];
+const pageData = [{ path:'/', page: 'budget', exact: true}, { path:'/tasks', page: 'tasks'}, { path:'/settings', page: 'settings'}];
 
 const Wrapper = styled.div`
     border-top: 1px solid #000;
@@ -96,4 +96,4 @@ const mapStateToProps = state => ({
     amount:state.budget.result
 });
 
-export default connect(mapStateToProps, null)(Navigation);
+export default connect(mapStateToProps)(Navigation);

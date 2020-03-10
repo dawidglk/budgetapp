@@ -1,5 +1,5 @@
 import React from 'react';
-import Settings from '../../components/Settings/Settings';
+import Settings from '../../components/Settings';
 
 
 const SettingsContainers = () => <Settings/>;

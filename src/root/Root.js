@@ -1,9 +1,10 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import styled, { createGlobalStyle } from 'styled-components';
-import BudgetContainers from '../containers/BudgetContainers/BudgetContainers';
-import SettingsContainers from '../containers/SettingsContainers/SettingsContainers';
-import Navigation from '../components/Navigation/Navigation';
+import BudgetContainers from '../containers/BudgetContainers';
+import SettingsContainers from '../containers/SettingsContainers';
+import TrelloContainers from '../containers/TrelloContainers';
+import Navigation from '../components/Navigation';
 
 
 const GlobalStyle = createGlobalStyle`
@@ -42,6 +43,7 @@ const Root = () => (
           <Switch>
             <Route exact path='/' component={BudgetContainers}/>
             <Route path='/settings' component={SettingsContainers}/>
+            <Route path='/tasks' component={TrelloContainers}/>
           </Switch>
         </Wrapper>
       </>
