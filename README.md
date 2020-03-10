@@ -2,6 +2,12 @@
 
 ## BudgetApp
 This project for management your budget, actually the project includes initial implementation, but it's still being developed
+## This project use:
+- React
+- React Router
+- Redux
+- Styled Components
+
 # Budget View
 <img src='src/assets/img/budgetpage.png' alt='budgetapp'>
 
@@ -14,10 +20,5 @@ TODO:
 
 <img src='src/assets/img/tasks.png' alt='tasks'>
 
-
-## This project use:
-- React Router
-- Redux
-- Styled Components
 
 
